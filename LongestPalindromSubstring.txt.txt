@@ -1,0 +1,41 @@
+let ans;
+let maxi=0;
+
+function checkPalindrome(string) {
+
+   
+    const arrayValues = string.split('');
+
+  
+    const reverseArrayValues = arrayValues.reverse();
+
+ 
+    const reverseString = reverseArrayValues.join('');
+
+    if(string == reverseString) {
+        if(string.length>maxi)
+        {
+        	maxi=string.length;
+          ans=string
+        }
+    }
+}
+
+
+function generateSubstring(string,str,i)
+{
+if(i==string.length)
+{
+
+	checkPalindrome(str)
+  return
+}
+   
+   generateSubstring(string,str+ string.charAt(i),i+1 )
+     generateSubstring(string,str,i+1 )
+   
+}
+
+
+generateSubstring("babad","",0)
+console.log(ans)
